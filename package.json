@@ -6,8 +6,11 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "@sap/cds": "^4",
-    "express": "^4"
+    "@sap-cloud-sdk/connectivity": "^3.1.1",
+    "@sap-cloud-sdk/http-client": "^3.1.1",
+    "@sap/cds": "^6.8.1",
+    "express": "^4",
+    "soap": "^1.0.0"
   },
   "devDependencies": {
     "@sap/ux-specification": "^1.108.3",
@@ -24,24 +27,10 @@
   ],
   "cds": {
     "requires": {
-      "API_BUSINESS_PARTNER": {
-        "kind": "odata",
-        "model": "srv/external/API_BUSINESS_PARTNER",
-        "csrf": true,
-        "csrfInBatch": true
-      },
-      "db": {
-        "kind": "sqlite",
-        "credentials": {
-          "database": ":memory:"
-        }
-      }
-    },
-    "requires": {
       "UserRead": {
         "kind": "SOAP",
         "credentials": {
-          "destination": "ST1_200",
+          "destination": "payments-dest",
           "path": "/sap/bc/srt/wsdl/flv_10002A111AD1/bndg_url/sap/bc/srt/rfc/sap/ziscd_scpos_maintain/200/zservice_iscd_scpos_maintain/zbind_iscd_scpos"
         }
       }
@@ -51,5 +40,3 @@
     }
   }
 }
-    
-
